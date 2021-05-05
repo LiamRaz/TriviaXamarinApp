@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TriviaXamarinApp.ViewModels;
 
 namespace TriviaXamarinApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpPage : ContentPage
+    public partial class StartPage : ContentPage
     {
-        public SignUpPage()
+        public StartPage()
         {
             InitializeComponent();
-            BindingContext = new SignUpViewModel();
         }
     }
 }

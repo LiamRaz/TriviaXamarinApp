@@ -15,17 +15,22 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <StackLayout Grid.Row="0" BackgroundColor="White" Margin="0" Padding="0">
-                        
+                        <Label FontSize="50"  TextColor="Black" HorizontalOptions="CenterAndExpand" Text="Log In" Margin="20" FontAttributes="Italic"/>
+                        <Entry Placeholder="Enter Your Email" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Chocolate" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding Email}" />
+                        <Entry Placeholder="Enter Your Password" IsPassword="True" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Chocolate" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding Password}" />
+                        <Button CornerRadius="20" HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand" Margin="50,20" Text="Log In" BackgroundColor="MediumPurple"
+                                Command="{Binding LoginCommand}" WidthRequest="120"/>
                     </StackLayout>
                     <StackLayout Grid.Row="1" BackgroundColor="#3DA5FF"  Margin="0" Padding="0">
                         <Label FontSize="Title" TextColor="White" HorizontalOptions="CenterAndExpand" Text="Welcome To Trivia" Margin="20" FontAttributes="Italic"/>
                         <Label FontSize="Caption" TextColor="White" HorizontalOptions="CenterAndExpand" Text="By RazKalfon" FontAttributes="Italic"/>
                         <BoxView HeightRequest="2" BackgroundColor="White" HorizontalOptions="Center" WidthRequest="200"/>
                         <Editor HorizontalOptions="CenterAndExpand" Margin="40,30" FontSize="Subtitle" TextColor="White" Text="Hello And Welcome To The Most Popular Trivia Game In The World!
-                                The Only Game You Can Answer Difficult Questions In And Even Write Your Own Questions!" FontAttributes="Italic"/>
+                                The Only Game In Which You Can Answer Difficult Questions In And Even Write Your Own Questions!" FontAttributes="Italic"/>
                         <Label Text="Dont Have An Account?" FontSize="Caption" TextColor="White" HorizontalOptions="CenterAndExpand"/>
-                        <Button CornerRadius="5" HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand" Margin="50,20" Text="Sign In" BackgroundColor="MediumPurple"
+                        <Button CornerRadius="20" HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand" Margin="50,20" Text="Sign Up" BackgroundColor="MediumPurple" 
                                 Command="{Binding SignUpCommand}" WidthRequest="120"/>
                     </StackLayout>
                 </Grid>

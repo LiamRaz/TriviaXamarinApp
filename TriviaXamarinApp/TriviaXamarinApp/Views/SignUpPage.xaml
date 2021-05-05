@@ -6,10 +6,18 @@
              mc:Ignorable="d"
              x:Class="TriviaXamarinApp.Views.SignUpPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="#292727"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+            <Label Text="Sign Up" FontSize="50" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3" Margin="20,100"/>
+
+            <Entry Placeholder="Enter Your Nickname" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding NickName}"/>
+            <Entry Placeholder="Enter Your Email" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
+            <Entry Placeholder="Enter Your Password" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
+
+            <Button CornerRadius="20" HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="CenterAndExpand" Margin="50" Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3"
+                                Command="{Binding SignUpCommand}" WidthRequest="120"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
