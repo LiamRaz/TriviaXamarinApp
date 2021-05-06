@@ -98,6 +98,21 @@
       <Name>TriviaXamarinApp</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\BrickWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\PurpleBrickWall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\TriviaNight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\TriviaNight2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\TriviaNight3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

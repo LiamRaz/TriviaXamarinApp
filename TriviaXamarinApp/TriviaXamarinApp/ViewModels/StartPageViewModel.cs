@@ -37,7 +37,11 @@ namespace TriviaXamarinApp.ViewModels
 
         private void Play()
         {
-            //Push?.Invoke(new NavigationPage());
+            //if(((App)App.Current).CurrentUser != null)
+                  //Push?.Invoke(new NavigationPage());
+            //else
+                  //Push?.Invoke(new NavigationPage());
+
         }
 
         #region Properties

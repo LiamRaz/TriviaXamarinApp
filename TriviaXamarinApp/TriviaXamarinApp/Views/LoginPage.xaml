@@ -27,7 +27,7 @@
                         <Label FontSize="Caption" TextColor="White" HorizontalOptions="CenterAndExpand" Text="By RazKalfon" FontAttributes="Italic"/>
                         <BoxView HeightRequest="2" BackgroundColor="White" HorizontalOptions="Center" WidthRequest="200"/>
                         <Editor HorizontalOptions="CenterAndExpand" Margin="40,30" FontSize="Subtitle" TextColor="White" Text="Hello And Welcome To The Most Popular Trivia Game In The World!
-                                The Only Game In Which You Can Answer Difficult Questions In And Even Write Your Own Questions!" FontAttributes="Italic"/>
+                                The Only Game In Which You Can Answer Difficult Questions And Even Write Your Own Questions!" FontAttributes="Italic"/>
                         <Label Text="Dont Have An Account?" FontSize="Caption" TextColor="White" HorizontalOptions="CenterAndExpand"/>
                         <Button CornerRadius="20" HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand" Margin="50,20" Text="Sign Up" BackgroundColor="MediumPurple" 
