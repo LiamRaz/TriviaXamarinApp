@@ -7,6 +7,7 @@ using TriviaXamarinApp.Services;
 using TriviaXamarinApp.Models;
 using System.Threading.Tasks;
 using TriviaXamarinApp.Views;
+using System.Collections.ObjectModel;
 
 namespace TriviaXamarinApp.ViewModels
 {
@@ -28,7 +29,7 @@ namespace TriviaXamarinApp.ViewModels
             {
 
 
-                User u = new User { Email = Email, NickName = NickName, Password = Password, Questions = new List<AmericanQuestion>() };
+                User u = new User { Email = Email, NickName = NickName, Password = Password, Questions = new ObservableCollection<AmericanQuestion>() };
                 bool b = await proxy.RegisterUser(u);
                 if (b)
                     Push?.Invoke(new LoginPage());

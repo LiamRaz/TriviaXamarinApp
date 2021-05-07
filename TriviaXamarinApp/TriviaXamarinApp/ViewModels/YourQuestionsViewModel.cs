@@ -17,21 +17,20 @@ namespace TriviaXamarinApp.ViewModels
         {
             ChosenQuestion = null;
             Error = string.Empty;
-            DeleteQuestion = new Command(Delete);
-            GoToEditCommand = new Command(GoToEdit);
+            DeleteQuestion = new Command<AmericanQuestion>(Delete);
+            GoToEditCommand = new Command<AmericanQuestion>(GoToEdit);
         }
 
-        private void GoToEdit(object obj)
+        private void GoToEdit(AmericanQuestion question)
         {
-            throw new NotImplementedException();
+            //Push?.Invoke(new NavigationPage(new EditPage()));
         }
 
-        private async void Delete()
+        private async void Delete(AmericanQuestion question)
         {
+            ChosenQuestion = question;
             try
             {
-
-
                 TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
                 bool b = await proxy.DeleteQuestion(ChosenQuestion);
                 if(!b)

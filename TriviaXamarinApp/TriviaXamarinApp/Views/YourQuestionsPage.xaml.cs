@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using TriviaXamarinApp.ViewModels;
 
 namespace TriviaXamarinApp.Views
 {
@@ -15,6 +16,17 @@ namespace TriviaXamarinApp.Views
         public YourQuestionsPage()
         {
             InitializeComponent();
+            BindingContext = new YourQuestionsViewModel();
+        }
+
+        private void SwipeItem_Invoked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SwipeItem_Invoked_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

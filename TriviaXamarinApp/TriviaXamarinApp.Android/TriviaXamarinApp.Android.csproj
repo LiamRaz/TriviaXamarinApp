@@ -113,6 +113,12 @@
   <ItemGroup>
     <AndroidResource Include="Resources\Photos\TriviaNight3.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\Photos\EditIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
