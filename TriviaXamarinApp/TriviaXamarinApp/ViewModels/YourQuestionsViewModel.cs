@@ -15,6 +15,8 @@ namespace TriviaXamarinApp.ViewModels
 
         public YourQuestionsViewModel()
         {
+            ChosenQuestion = null;
+            Error = string.Empty;
             DeleteQuestion = new Command(Delete);
             GoToEditCommand = new Command(GoToEdit);
         }
@@ -26,9 +28,19 @@ namespace TriviaXamarinApp.ViewModels
 
         private async void Delete()
         {
-            TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-            bool b = await proxy.DeleteQuestion(ChosenQuestion);
+            try
+            {
 
+
+                TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
+                bool b = await proxy.DeleteQuestion(ChosenQuestion);
+                if(!b)
+                    Error = "Something Went Wrong...";
+            }
+            catch(Exception)
+            {
+                Error = "Something Went Wrong...";
+            }
         }
 
         #region Properties
@@ -44,6 +56,21 @@ namespace TriviaXamarinApp.ViewModels
                 {
                     chosenQuestion = value;
                     OnPropertyChanged();
+                }
+            }
+        }
+
+        private string error;
+
+        public string Error
+        {
+            get => error;
+            set
+            {
+                if (value != error)
+                {
+                    error = value;
+                    OnPropertyChanged();//maybe need nameof
                 }
             }
         }

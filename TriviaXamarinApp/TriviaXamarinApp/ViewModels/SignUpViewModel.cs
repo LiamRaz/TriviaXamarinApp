@@ -14,6 +14,10 @@ namespace TriviaXamarinApp.ViewModels
     {
         public SignUpViewModel()
         {
+            Email = string.Empty;
+            Password = string.Empty;
+            NickName = string.Empty;
+            Error = string.Empty;
             SignUpCommand = new Command(SignUp);
         }
 
