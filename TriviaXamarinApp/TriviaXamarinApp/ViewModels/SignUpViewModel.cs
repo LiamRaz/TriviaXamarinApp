@@ -20,10 +20,21 @@ namespace TriviaXamarinApp.ViewModels
         private async void SignUp()
         {
             TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-            User u = new User { Email = Email, NickName = NickName, Password = Password, Questions = new List<AmericanQuestion>() };
-            bool b = await proxy.RegisterUser(u);
-            if (b)
-                Push?.Invoke(new LoginPage());
+            try
+            {
+
+
+                User u = new User { Email = Email, NickName = NickName, Password = Password, Questions = new List<AmericanQuestion>() };
+                bool b = await proxy.RegisterUser(u);
+                if (b)
+                    Push?.Invoke(new LoginPage());
+                else
+                    Error = "Something Went Wrong...";
+            }
+            catch(Exception)
+            {
+                Error = "Something Went Wrong...";
+            }
         }
 
         #region Properties
@@ -74,10 +85,24 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
+        private string error;
+
+        public string Error
+        {
+            get => error;
+            set
+            {
+                if (value != error)
+                {
+                    error = value;
+                    OnPropertyChanged();//maybe need nameof
+                }
+            }
+        }
         #endregion
 
         #region Commands
-            public ICommand SignUpCommand { get; set; }
+        public ICommand SignUpCommand { get; set; }
 
         #endregion
 

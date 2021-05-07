@@ -15,8 +15,10 @@
             <Entry Placeholder="Enter Your Email" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
             <Entry Placeholder="Enter Your Password" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
 
+            <Label Text="{Binding Error}" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3"/>
             <Button CornerRadius="20" HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand" Margin="50" Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3"
+                                VerticalOptions="CenterAndExpand"Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3"
                                 Command="{Binding SignUpCommand}" WidthRequest="120"/>
         </StackLayout>
     </ContentPage.Content>

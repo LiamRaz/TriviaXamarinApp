@@ -15,6 +15,9 @@ namespace TriviaXamarinApp.ViewModels
         
         public LoginViewModel()
         {
+            Email = string.Empty;
+            Password = string.Empty;
+            Error = string.Empty;
             LoginCommand = new Command(Login);
             SignUpCommand = new Command(SignUp);
         }
@@ -27,13 +30,19 @@ namespace TriviaXamarinApp.ViewModels
         private async void Login()
         {
             TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-            User u = await proxy.LoginAsync(Email,Password);
-            if (u != null)
+            try
             {
-                ((App)App.Current).CurrentUser = u;
-                Push?.Invoke(new StartPage());
+                User u = await proxy.LoginAsync(Email, Password);
+                if (u != null)
+                {
+                    ((App)App.Current).CurrentUser = u;
+                    Push?.Invoke(new StartPage());
+                }
             }
-                
+            catch(Exception)
+            {
+                Error = "Something Went Wrong...";
+            }
            
             //move to next page
         }
@@ -69,6 +78,21 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
+
+        private string error;
+
+        public string Error
+        {
+            get => error;
+            set
+            {
+                if (value != error)
+                {
+                    error = value;
+                    OnPropertyChanged();//maybe need nameof
+                }
+            }
+        }
 
         #endregion
 
