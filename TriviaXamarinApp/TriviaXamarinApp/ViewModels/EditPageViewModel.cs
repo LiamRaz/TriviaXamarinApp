@@ -76,7 +76,7 @@ namespace TriviaXamarinApp.ViewModels
                 }
                 catch (Exception)
                 {
-                    Error = "Something Went Wrong...";
+                    Error = "Something Went Wrong..";
                 }
             }
         }
