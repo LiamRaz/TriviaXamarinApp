@@ -18,7 +18,7 @@
             <Label Text="{Binding Error}" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3"/>
             <Button CornerRadius="20" HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand"Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3"
+                                VerticalOptions="CenterAndExpand" Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3"
                                 Command="{Binding SignUpCommand}" WidthRequest="120"/>
         </StackLayout>
     </ContentPage.Content>

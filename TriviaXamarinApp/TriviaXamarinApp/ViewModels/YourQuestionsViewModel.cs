@@ -23,7 +23,19 @@ namespace TriviaXamarinApp.ViewModels
 
         private void GoToEdit(AmericanQuestion question)
         {
-            //Push?.Invoke(new NavigationPage(new EditPage()));
+            EditPageViewModel editViewModel = new EditPageViewModel();
+            editViewModel.QTextBefore = question.QText;
+            editViewModel.QTextAfter = question.QText;
+            editViewModel.CorrectAnswerBefore = question.CorrectAnswer;
+            editViewModel.CorrectAnswerAfter = question.CorrectAnswer;
+            for (int i = 0; i < editViewModel.OtherAnswersBefore.Length; i++)
+            {
+                editViewModel.OtherAnswersBefore[i] = question.OtherAnswers[i];
+                editViewModel.OtherAnswersAfter[i] = question.OtherAnswers[i];
+            }
+            EditPage eP = new EditPage();
+            eP.BindingContext = editViewModel;
+            Push?.Invoke(new NavigationPage(eP));
         }
 
         private async void Delete(AmericanQuestion question)
