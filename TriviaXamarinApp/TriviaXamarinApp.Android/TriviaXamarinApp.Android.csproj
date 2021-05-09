@@ -89,9 +89,7 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TriviaXamarinApp\TriviaXamarinApp.csproj">
       <Project>{08666E1A-147D-4685-9586-69956F630EB4}</Project>
@@ -99,25 +97,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Photos\BrickWall.png" />
+    <AndroidResource Include="Resources\drawable\TriviaNight3.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\Photos\PurpleBrickWall.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Photos\TriviaNight.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Photos\TriviaNight2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Photos\TriviaNight3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Photos\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidResource Include="Resources\Photos\EditIcon.png" />
+    <AndroidResource Include="Resources\drawable\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>

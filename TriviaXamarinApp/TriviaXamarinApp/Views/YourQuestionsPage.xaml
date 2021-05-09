@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#292727">
             <Label Text="Your Questions:" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Title"/>
-            <CollectionView x:Name="collectionName" 
+            <!--<CollectionView x:Name="collectionName" 
                             ItemsSource="((App)App.Current).CurrentUser.Questions">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -38,7 +38,7 @@
                         </SwipeView>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
-            </CollectionView>
+            </CollectionView>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

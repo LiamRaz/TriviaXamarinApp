@@ -9,7 +9,7 @@
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Source="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\photos\trivianight3.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+                <Image Grid.Row="0" Source="TriviaNight3.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
                 <StackLayout Grid.Row="1">
                 <Grid x:Name="ButtonsGrid">
                     <Grid.RowDefinitions>
@@ -17,9 +17,9 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
-                    <!--<Button BackgroundColor="#A8AD0F" Text="Play" CornerRadius="20" HorizontalOptions="Center" Margin="30" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="0" Command="{Binding PlayCommand}" />-->
-                    <!--<Button BackgroundColor="#A8AD0F" Text="Logout" CornerRadius="20" HorizontalOptions="Center" Margin="30" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="1" />
-                    <Button BackgroundColor="#A8AD0F" Text="Edit" CornerRadius="20" HorizontalOptions="Center" Margin="30" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="2" />-->
+                    <!--<Button BackgroundColor="#A8AD0F" Text="Play" CornerRadius="20" HorizontalOptions="Center" Margin="20" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="0" Command="{Binding PlayCommand}" />
+                    <Button BackgroundColor="#A8AD0F" Text="Logout" CornerRadius="20" HorizontalOptions="Center" Margin="20" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="1" />
+                    <Button BackgroundColor="#A8AD0F" Text="Edit" CornerRadius="20" HorizontalOptions="Center" Margin="20" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="2" />-->
                 </Grid>
             </StackLayout>
             </Grid>
