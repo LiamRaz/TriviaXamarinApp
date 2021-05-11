@@ -14,11 +14,16 @@ namespace TriviaXamarinApp.ViewModels
     {
         public StartPageViewModel()
         {
-            
+            SignUpCommand = new Command(SignUp);
             PlayCommand = new Command(Play);
             LoginCommand = new Command(Login);
             LogoutCommand = new Command(LogOut);
             EditCommand = new Command(Edit);
+        }
+
+        private async void SignUp()
+        {
+            Push?.Invoke(new SignUpPage());
         }
 
         private async void Edit()
@@ -40,7 +45,7 @@ namespace TriviaXamarinApp.ViewModels
         {
             if (((App)App.Current).CurrentUser != null)
             {
-                //Push?.Invoke(new NavigationPage());
+                //Push?.Invoke();
             }
             else
                 Push?.Invoke(new LoginPage());
@@ -57,7 +62,7 @@ namespace TriviaXamarinApp.ViewModels
         public ICommand LoginCommand { get; set; }
         public ICommand LogoutCommand { get; set; }
         public ICommand EditCommand { get; set; }
-
+        public ICommand SignUpCommand { get; set; }
         #endregion
 
         #region Events

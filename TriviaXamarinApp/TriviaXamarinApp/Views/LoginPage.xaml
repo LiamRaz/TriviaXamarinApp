@@ -21,13 +21,13 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
+                                <!--<RowDefinition Height="Auto"/>-->
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" FontSize="Subtitle"  TextColor="Black" HorizontalOptions="CenterAndExpand" Text="Log In" FontAttributes="Italic"/>
+                            <Label Grid.Row="0" FontSize="Subtitle"  TextColor="Black" HorizontalOptions="CenterAndExpand" Text="{Binding Error}" FontAttributes="Italic"/>
                             <Entry Grid.Row="1" Placeholder="Enter Your Email" HorizontalOptions="CenterAndExpand" PlaceholderColor="Chocolate"  HorizontalTextAlignment="Center" Text="{Binding Email}" FontSize="Micro" />
                             <Entry Grid.Row="2" Placeholder="Enter Your Password" IsPassword="True" HorizontalOptions="CenterAndExpand"  PlaceholderColor="Chocolate"  HorizontalTextAlignment="Center" Text="{Binding Password}" FontSize="Micro" />
-                            <Label Grid.Row="3" Text="{Binding Error}" HorizontalOptions="CenterAndExpand" FontSize="Micro"/>
-                            <Button Grid.Row="4" CornerRadius="20" HorizontalOptions="CenterAndExpand"
+                            <!--<Label Grid.Row="3" Text="{Binding Error}" HorizontalOptions="CenterAndExpand" FontSize="Micro"/>-->
+                            <Button Grid.Row="3" CornerRadius="20" HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"  Text="Log In" BackgroundColor="MediumPurple"
                                 Command="{Binding LoginCommand}" FontSize="Micro" HeightRequest="30" Padding="0"/>
                         </Grid>

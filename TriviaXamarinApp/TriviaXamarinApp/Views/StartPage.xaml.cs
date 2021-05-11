@@ -18,6 +18,7 @@ namespace TriviaXamarinApp.Views
         Button LoginButton;
         Button LogoutButton;
         Button EditButton;
+        Button SignUpButton;
 
         public StartPage()
         {
@@ -44,13 +45,17 @@ namespace TriviaXamarinApp.Views
             }
             else
             {
-                PlayButton = new Button { BackgroundColor = Color.Gold, Text = "Play", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0 };
+                PlayButton = new Button { BackgroundColor = Color.Gold, Text = "Play", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0, Margin = 10 };
                 PlayButton.SetBinding(Button.CommandProperty, "PlayCommand");
                 ButtonsGrid.Children.Add(PlayButton,0,0);
 
-                LoginButton = new Button { BackgroundColor = Color.Gold, Text = "Login", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center,/* WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0 };
+                LoginButton = new Button { BackgroundColor = Color.Gold, Text = "Login", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center,/* WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0, Margin = 10 };
                 LoginButton.SetBinding(Button.CommandProperty, "LoginCommand");
                 ButtonsGrid.Children.Add(LoginButton,0,1);
+
+                SignUpButton = new Button { BackgroundColor = Color.Gold, Text = "Sign Up", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center,/* WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0, Margin = 10 };
+                SignUpButton.SetBinding(Button.CommandProperty, "SignUpCommand");
+                ButtonsGrid.Children.Add(SignUpButton, 0, 2);
             }
 
         }

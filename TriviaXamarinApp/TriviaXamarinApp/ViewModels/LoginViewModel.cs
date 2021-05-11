@@ -17,7 +17,7 @@ namespace TriviaXamarinApp.ViewModels
         {
             Email = string.Empty;
             Password = string.Empty;
-            Error = string.Empty;
+            Error = "Log In";
             LoginCommand = new Command(Login);
             SignUpCommand = new Command(SignUp);
         }
@@ -38,6 +38,8 @@ namespace TriviaXamarinApp.ViewModels
                     ((App)App.Current).CurrentUser = u;
                     Push?.Invoke(new StartPage());
                 }
+                else
+                    Error = "Login Failed";
             }
             catch(Exception)
             {

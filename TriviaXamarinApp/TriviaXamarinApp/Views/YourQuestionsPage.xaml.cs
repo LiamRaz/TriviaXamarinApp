@@ -16,7 +16,9 @@ namespace TriviaXamarinApp.Views
         public YourQuestionsPage()
         {
             InitializeComponent();
-            BindingContext = new YourQuestionsViewModel();
+            YourQuestionsViewModel yQVM = new YourQuestionsViewModel();
+            BindingContext = yQVM;
+            yQVM.Push += (p) => Navigation.PushAsync(p);
         }
 
         private void SwipeItem_Invoked(object sender, EventArgs e)

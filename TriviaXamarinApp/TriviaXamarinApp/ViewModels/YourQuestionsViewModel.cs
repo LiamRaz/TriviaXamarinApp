@@ -35,7 +35,7 @@ namespace TriviaXamarinApp.ViewModels
             }
             EditPage eP = new EditPage();
             eP.BindingContext = editViewModel;
-            Push?.Invoke(new NavigationPage(eP));
+            Push?.Invoke(eP);
         }
 
         private async void Delete(AmericanQuestion question)
