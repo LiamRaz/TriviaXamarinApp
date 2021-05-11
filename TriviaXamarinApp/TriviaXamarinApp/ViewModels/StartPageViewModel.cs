@@ -14,6 +14,7 @@ namespace TriviaXamarinApp.ViewModels
     {
         public StartPageViewModel()
         {
+            
             PlayCommand = new Command(Play);
             LoginCommand = new Command(Login);
             LogoutCommand = new Command(LogOut);
@@ -32,15 +33,17 @@ namespace TriviaXamarinApp.ViewModels
 
         private void Login()
         {
-            Push?.Invoke(new NavigationPage(new LoginPage()));
+            Push?.Invoke(new LoginPage());
         }
 
         private void Play()
         {
-            //if(((App)App.Current).CurrentUser != null)
-                  //Push?.Invoke(new NavigationPage());
-            //else
-                  //Push?.Invoke(new NavigationPage());
+            if (((App)App.Current).CurrentUser != null)
+            {
+                //Push?.Invoke(new NavigationPage());
+            }
+            else
+                Push?.Invoke(new LoginPage());
 
         }
 

@@ -24,7 +24,7 @@ namespace TriviaXamarinApp.ViewModels
 
         private void SignUp()
         {
-            Push?.Invoke(new NavigationPage(new SignUpPage()));
+            Push?.Invoke(new SignUpPage());
         }
 
         private async void Login()

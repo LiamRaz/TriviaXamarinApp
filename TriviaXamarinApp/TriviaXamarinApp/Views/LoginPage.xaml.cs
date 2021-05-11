@@ -15,7 +15,9 @@ namespace TriviaXamarinApp.Views
         public LoginPage()
         {
             InitializeComponent();
-            BindingContext = new LoginViewModel();
+            LoginViewModel lVM = new LoginViewModel();
+            BindingContext = lVM;
+            lVM.Push += (p) => Navigation.PushAsync(p);
         }
     }
 }

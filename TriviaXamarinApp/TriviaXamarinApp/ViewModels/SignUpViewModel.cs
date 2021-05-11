@@ -29,7 +29,7 @@ namespace TriviaXamarinApp.ViewModels
             {
 
 
-                User u = new User { Email = Email, NickName = NickName, Password = Password, Questions = new ObservableCollection<AmericanQuestion>() };
+                User u = new User { Email = Email, NickName = NickName, Password = Password, Questions = new ObservableCollection<AmericanQuestion>() };/*array*/
                 bool b = await proxy.RegisterUser(u);
                 if (b)
                     Push?.Invoke(new LoginPage());
