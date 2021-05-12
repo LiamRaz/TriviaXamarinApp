@@ -7,25 +7,22 @@ using TriviaXamarinApp.Services;
 using TriviaXamarinApp.Models;
 using System.Threading.Tasks;
 using TriviaXamarinApp.Views;
+using System.Collections.ObjectModel;
 
 namespace TriviaXamarinApp.ViewModels
 {
     class EditPageViewModel:BaseViewModel
     {
 
-        public EditPageViewModel()
+        public EditPageViewModel(AmericanQuestion question)
         {
-            Error = string.Empty;
-            QTextBefore = string.Empty;
-            QTextAfter = string.Empty;
-            CorrectAnswerBefore = string.Empty;
-            CorrectAnswerAfter = string.Empty;
-            OtherAnswersAfter = new string[OTHER_ANSWERS_NUM];
-            OtherAnswersBefore = new string[OTHER_ANSWERS_NUM];
-            for (int i = 0; i < OTHER_ANSWERS_NUM ; i++)
+            questionBefore = question;
+            QTextAfter = question.QText;
+            CorrectAnswerAfter = question.CorrectAnswer;
+            OtherAnswersAfter = new ObservableCollection<string>();
+            foreach (string wrongAnswer in question.OtherAnswers)
             {
-                OtherAnswersAfter[i] = string.Empty;
-                OtherAnswersBefore[i] = string.Empty;
+                OtherAnswersAfter.Add(wrongAnswer);
             }
 
             SubmitQuestionCommand = new Command(SubmitQuestion);
@@ -33,18 +30,10 @@ namespace TriviaXamarinApp.ViewModels
 
         private async void SubmitQuestion()
         {
-            AmericanQuestion toBeDeleted = new AmericanQuestion
-            {
-                QText = this.QTextBefore,
-                CorrectAnswer = this.CorrectAnswerBefore,
-                CreatorNickName = ((App)App.Current).CurrentUser.NickName,
-                OtherAnswers = otherAnswersBefore
-            };
-
             try
             {
                 TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-                if(!await proxy.DeleteQuestion(toBeDeleted))
+                if(!await proxy.DeleteQuestion(questionBefore))
                 {
                     Error = "Something Went Wrong...";
                 }
@@ -62,7 +51,12 @@ namespace TriviaXamarinApp.ViewModels
                     QText = this.QTextAfter,
                     CorrectAnswer = this.CorrectAnswerAfter,
                     CreatorNickName = ((App)App.Current).CurrentUser.NickName,
-                    OtherAnswers = otherAnswersAfter
+                    OtherAnswers = new string[]
+                    {
+                        OtherAnswersAfter[0],
+                        OtherAnswersAfter[1],
+                        OtherAnswersAfter[2]
+                    }
                 };
 
                 try
@@ -73,12 +67,15 @@ namespace TriviaXamarinApp.ViewModels
                         Error = "Something Went Wrong...";
                     }
 
+                    ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
                 }
                 catch (Exception)
                 {
                     Error = "Something Went Wrong..";
                 }
             }
+
+            
         }
 
         #region Properties
@@ -101,51 +98,7 @@ namespace TriviaXamarinApp.ViewModels
 
         private const int OTHER_ANSWERS_NUM = 3;
 
-        private string qTextBefore;
-
-        public string QTextBefore
-        {
-            get => qTextBefore;
-            set
-            {
-                if(value != qTextBefore)
-                {
-                    qTextBefore = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-        private string correctAnswerBefore;
-
-        public string CorrectAnswerBefore
-        {
-            get => correctAnswerBefore;
-            set
-            {
-                if (value != correctAnswerBefore)
-                {
-                    correctAnswerBefore = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
-
-
-        private string[] otherAnswersBefore;
-
-        public string[] OtherAnswersBefore
-        {
-            get => otherAnswersBefore;
-            set
-            {
-                if (value != otherAnswersBefore)
-                {
-                    otherAnswersBefore = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        private AmericanQuestion questionBefore;
 
 
         private string qTextAfter;
@@ -179,20 +132,7 @@ namespace TriviaXamarinApp.ViewModels
         }
 
 
-        private string[] otherAnswersAfter;
-
-        public string[] OtherAnswersAfter
-        {
-            get => otherAnswersAfter;
-            set
-            {
-                if (value != otherAnswersAfter)
-                {
-                    otherAnswersAfter = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+        public ObservableCollection<string> OtherAnswersAfter { get; set; }
 
         #endregion
 

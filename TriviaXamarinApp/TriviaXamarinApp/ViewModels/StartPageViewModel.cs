@@ -21,14 +21,14 @@ namespace TriviaXamarinApp.ViewModels
             EditCommand = new Command(Edit);
         }
 
-        private async void SignUp()
+        private void SignUp()
         {
             Push?.Invoke(new SignUpPage());
         }
 
-        private async void Edit()
+        private void Edit()
         {
-            //Push?.Invoke(new NavigationPage());
+            Push?.Invoke(new YourQuestionsPage());
         }
 
         private void LogOut()

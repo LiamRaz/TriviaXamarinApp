@@ -10,6 +10,6 @@ namespace TriviaXamarinApp.Models
         public string Email { get; set; }
         public string NickName { get; set; }
         public string Password { get; set; }
-        public ObservableCollection<AmericanQuestion> Questions { get; set; }
+        public List<AmericanQuestion> Questions { get; set; }
     }
 }

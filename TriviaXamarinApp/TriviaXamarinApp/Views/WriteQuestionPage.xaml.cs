@@ -6,18 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TriviaXamarinApp.ViewModels;
 
 namespace TriviaXamarinApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpPage : ContentPage
+    public partial class WriteQuestionPage : ContentPage
     {
-        public SignUpPage()
+        public WriteQuestionPage()
         {
             InitializeComponent();
-            BindingContext = new SignUpViewModel();
-            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.Black;
         }
     }
 }

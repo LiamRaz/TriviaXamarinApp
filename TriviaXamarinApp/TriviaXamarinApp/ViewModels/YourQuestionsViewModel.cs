@@ -7,6 +7,7 @@ using TriviaXamarinApp.Services;
 using TriviaXamarinApp.Models;
 using System.Threading.Tasks;
 using TriviaXamarinApp.Views;
+using System.Collections.ObjectModel;
 
 namespace TriviaXamarinApp.ViewModels
 {
@@ -15,38 +16,44 @@ namespace TriviaXamarinApp.ViewModels
 
         public YourQuestionsViewModel()
         {
-            ChosenQuestion = null;
             Error = string.Empty;
+            Questions = new ObservableCollection<AmericanQuestion>();
+            foreach (AmericanQuestion question in ((App)App.Current).CurrentUser.Questions)
+            {
+                Questions.Add(question);
+            }
             DeleteQuestion = new Command<AmericanQuestion>(Delete);
             GoToEditCommand = new Command<AmericanQuestion>(GoToEdit);
         }
 
-        private void GoToEdit(AmericanQuestion question)
+        private async void GoToEdit(AmericanQuestion question)
         {
-            EditPageViewModel editViewModel = new EditPageViewModel();
-            editViewModel.QTextBefore = question.QText;
-            editViewModel.QTextAfter = question.QText;
-            editViewModel.CorrectAnswerBefore = question.CorrectAnswer;
-            editViewModel.CorrectAnswerAfter = question.CorrectAnswer;
-            for (int i = 0; i < editViewModel.OtherAnswersBefore.Length; i++)
-            {
-                editViewModel.OtherAnswersBefore[i] = question.OtherAnswers[i];
-                editViewModel.OtherAnswersAfter[i] = question.OtherAnswers[i];
-            }
+            EditPageViewModel editViewModel = new EditPageViewModel(question);
+            
             EditPage eP = new EditPage();
             eP.BindingContext = editViewModel;
-            Push?.Invoke(eP);
+            await Push?.Invoke(eP);
+            Questions.Clear();
+            foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
+            {
+                Questions.Add(q);
+            }
         }
 
         private async void Delete(AmericanQuestion question)
         {
-            ChosenQuestion = question;
+            
             try
             {
                 TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-                bool b = await proxy.DeleteQuestion(ChosenQuestion);
+                bool b = await proxy.DeleteQuestion(question);
                 if(!b)
                     Error = "Something Went Wrong...";
+                else
+                {
+                    Questions.Remove(question);
+                    ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
+                }
             }
             catch(Exception)
             {
@@ -56,20 +63,7 @@ namespace TriviaXamarinApp.ViewModels
 
         #region Properties
 
-        private AmericanQuestion chosenQuestion;
-
-        public AmericanQuestion ChosenQuestion
-        {
-            get => chosenQuestion;
-            set
-            {
-                if(value != chosenQuestion)
-                {
-                    chosenQuestion = value;
-                    OnPropertyChanged();
-                }
-            }
-        }
+       
 
         private string error;
 
@@ -86,6 +80,8 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
+        public ObservableCollection<AmericanQuestion> Questions { get; set; }
+
         #endregion
 
         #region Commands
@@ -98,7 +94,7 @@ namespace TriviaXamarinApp.ViewModels
 
         #region Events
 
-        public event Action<Page> Push;
+        public event Func<Page,Task> Push;
 
         #endregion
 
