@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TriviaXamarinApp.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using TriviaXamarinApp.ViewModels;
@@ -26,38 +26,47 @@ namespace TriviaXamarinApp.Views
             StartPageViewModel sPVM = new StartPageViewModel();
             BindingContext = sPVM;
             sPVM.Push += (p) => Navigation.PushAsync(p);
+            ((App)App.Current).Update += UpdateStartPage;
 
+            UpdateStartPage(((App)App.Current).CurrentUser);
+        }
 
-
-            if (((App)App.Current).CurrentUser != null)
+        private void UpdateStartPage(User u)
+        {
+            if (u != null)
             {
-                PlayButton = new Button { BackgroundColor = Color.Gold, Text = "Play", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, Margin = 10, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding= 0 };
+                PlayButton = new Button { BackgroundColor = Color.Gold, Text = "Play", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, Margin = 10, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0 };
                 PlayButton.SetBinding(Button.CommandProperty, "PlayCommand");
-                ButtonsGrid.Children.Add(PlayButton,0,0);
-                
+                ButtonsGrid.Children.Add(PlayButton, 0, 0);
+
                 LogoutButton = new Button { BackgroundColor = Color.Gold, Text = "Logout", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, Margin = 10, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0 };
                 LogoutButton.SetBinding(Button.CommandProperty, "LogoutCommand");
-                ButtonsGrid.Children.Add(LogoutButton, 0, 1) ;
+                ButtonsGrid.Children.Add(LogoutButton, 0, 1);
 
                 EditButton = new Button { BackgroundColor = Color.Gold, Text = "Edit", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, Margin = 10, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0 };
                 EditButton.SetBinding(Button.CommandProperty, "EditCommand");
-                ButtonsGrid.Children.Add(EditButton,0,2);
+                ButtonsGrid.Children.Add(EditButton, 0, 2);
+
+                LoginButton = null;
+                SignUpButton = null;
             }
             else
             {
                 PlayButton = new Button { BackgroundColor = Color.Gold, Text = "Play", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0, Margin = 10 };
                 PlayButton.SetBinding(Button.CommandProperty, "PlayCommand");
-                ButtonsGrid.Children.Add(PlayButton,0,0);
+                ButtonsGrid.Children.Add(PlayButton, 0, 0);
 
                 LoginButton = new Button { BackgroundColor = Color.Gold, Text = "Login", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center,/* WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0, Margin = 10 };
                 LoginButton.SetBinding(Button.CommandProperty, "LoginCommand");
-                ButtonsGrid.Children.Add(LoginButton,0,1);
+                ButtonsGrid.Children.Add(LoginButton, 0, 1);
 
                 SignUpButton = new Button { BackgroundColor = Color.Gold, Text = "Sign Up", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center,/* WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0, Margin = 10 };
                 SignUpButton.SetBinding(Button.CommandProperty, "SignUpCommand");
                 ButtonsGrid.Children.Add(SignUpButton, 0, 2);
-            }
 
+                LogoutButton = null;
+                EditButton = null;
+            }
         }
 
 

@@ -22,17 +22,18 @@ namespace TriviaXamarinApp.ViewModels
             {
                 Questions.Add(question);
             }
-            DeleteQuestion = new Command<AmericanQuestion>(Delete);
+            DeleteQuestionCommand = new Command<AmericanQuestion>(Delete);
             GoToEditCommand = new Command<AmericanQuestion>(GoToEdit);
         }
 
-        private async void GoToEdit(AmericanQuestion question)
+        private void GoToEdit(AmericanQuestion question)
         {
             EditPageViewModel editViewModel = new EditPageViewModel(question);
             
             EditPage eP = new EditPage();
             eP.BindingContext = editViewModel;
-            await Push?.Invoke(eP);
+            Task t = Push?.Invoke(eP);
+            t.Wait();
             Questions.Clear();
             foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
             {
@@ -86,7 +87,7 @@ namespace TriviaXamarinApp.ViewModels
 
         #region Commands
 
-        public ICommand DeleteQuestion { get; set; }
+        public ICommand DeleteQuestionCommand { get; set; }
 
         public ICommand GoToEditCommand { get; set; }
 

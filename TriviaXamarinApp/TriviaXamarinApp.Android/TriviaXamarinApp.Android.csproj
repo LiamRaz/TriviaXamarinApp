@@ -89,7 +89,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\TriviaXamarinApp\TriviaXamarinApp.csproj">
       <Project>{08666E1A-147D-4685-9586-69956F630EB4}</Project>

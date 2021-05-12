@@ -44,7 +44,7 @@ namespace TriviaXamarinApp.ViewModels
                 Error = "Something Went Wrong...";
             }
 
-            if(!string.IsNullOrEmpty(Error))
+            if(string.IsNullOrEmpty(Error))
             {
                 AmericanQuestion newQuestion = new AmericanQuestion
                 {
@@ -68,6 +68,7 @@ namespace TriviaXamarinApp.ViewModels
                     }
 
                     ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
+                    Pop?.Invoke();
                 }
                 catch (Exception)
                 {
@@ -143,6 +144,8 @@ namespace TriviaXamarinApp.ViewModels
         #endregion
 
         #region Events
+
+        public event Action Pop;
 
         #endregion
 

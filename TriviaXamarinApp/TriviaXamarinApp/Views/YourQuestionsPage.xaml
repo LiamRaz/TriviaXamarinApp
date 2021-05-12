@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TriviaXamarinApp.Views.YourQuestionsPage">
+             x:Class="TriviaXamarinApp.Views.YourQuestionsPage"
+             x:Name="thePage">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#292727">
@@ -13,16 +14,16 @@
                                 <SwipeView.LeftItems>
                                     <SwipeItems>
                                         <SwipeItem Text="Delete"
-                                           IconImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\photos\delete.png"
+                                           IconImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\delete.png"
                                            BackgroundColor="LightPink"
                                            Invoked="SwipeItem_Invoked"
-                                           Command="{Binding DeleteCommand}"
+                                           Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
                                            CommandParameter="{Binding}"/>
                                         <SwipeItem Text="Edit"
-                                           IconImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\photos\editicon.png"
+                                           IconImageSource=""
                                            BackgroundColor="Orange"
                                            Invoked="SwipeItem_Invoked_1"
-                                           Command="{Binding GoToEditCommand}"
+                                           Command="{Binding Source={x:Reference thePage}, Path= BindingContext.GoToEditCommand}"
                                            CommandParameter="{Binding}"/>
                                     </SwipeItems>
                                 </SwipeView.LeftItems>

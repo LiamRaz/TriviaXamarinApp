@@ -21,7 +21,7 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     
-                    <Entry Grid.Row="0" Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding QtextAfter}"/>
+                    <Entry Grid.Row="0" Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding QTextAfter}"/>
                     <Entry Grid.Row="1" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding CorrectAnswerAfter}"/>
                     <Entry Grid.Row="2" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[0]}"/>
                     <Entry Grid.Row="3" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[1]}"/>

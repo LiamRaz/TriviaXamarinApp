@@ -10,7 +10,21 @@ namespace TriviaXamarinApp
 {
     public partial class App : Application
     {
-        public User CurrentUser { get; set; }
+        public event Action<User> Update;
+
+        private User currentUser;
+        public User CurrentUser 
+        {
+            get => currentUser;
+            set
+            {
+                if(value != currentUser)
+                {
+                    currentUser = value;
+                    Update?.Invoke(currentUser);
+                }
+            }
+        }
         public App()
         {
             InitializeComponent();
