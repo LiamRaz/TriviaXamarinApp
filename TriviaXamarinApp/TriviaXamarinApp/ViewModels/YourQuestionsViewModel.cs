@@ -18,7 +18,7 @@ namespace TriviaXamarinApp.ViewModels
         {
             Error = string.Empty;
             Questions = new ObservableCollection<AmericanQuestion>();
-            GetUser();
+            GetQuestions();
             foreach (AmericanQuestion question in ((App)App.Current).CurrentUser.Questions)
             {
                 Questions.Add(question);
@@ -27,7 +27,7 @@ namespace TriviaXamarinApp.ViewModels
             GoToEditCommand = new Command<AmericanQuestion>(GoToEdit);
         }
 
-        private async void GetUser()
+        private async void GetQuestions()
         {
             try
             {

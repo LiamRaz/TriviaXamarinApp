@@ -66,6 +66,10 @@ namespace TriviaXamarinApp.ViewModels
                     {
                         Error = "Something Went Wrong...";
                     }
+                    else
+                    {
+                        Error = "Edit Completed!";
+                    }
 
                     ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
                     Pop?.Invoke();

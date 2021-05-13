@@ -20,7 +20,7 @@
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
                                            CommandParameter="{Binding}"/>
                                         <SwipeItem Text="Edit"
-                                           IconImageSource=""
+                                           IconImageSource="editIcon.png"
                                            BackgroundColor="Orange"
                                            Invoked="SwipeItem_Invoked_1"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.GoToEditCommand}"
@@ -29,14 +29,14 @@
                                 </SwipeView.LeftItems>
                                 <SwipeView.RightItems>
                                     <SwipeItems>
-                                        <SwipeItem Text="Delete"
+                                        <SwipeItem Text="Delete" 
                                            IconImageSource="delete.png"
                                            BackgroundColor="LightPink"
                                            Invoked="SwipeItem_Invoked"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
                                            CommandParameter="{Binding}"/>
                                         <SwipeItem Text="Edit"
-                                           IconImageSource=""
+                                           IconImageSource="editIcon.png"
                                            BackgroundColor="Orange"
                                            Invoked="SwipeItem_Invoked_1"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.GoToEditCommand}"

@@ -5,37 +5,33 @@
              xmlns:controls="clr-namespace:TriviaXamarinApp.Controls;assembly=TriviaXamarinApp">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20">
 
-                <Label Text="Edit" FontSize="50" FontAttributes="Bold" HorizontalTextAlignment="Center"
-                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="20,50"/>
+                <Label Text="Edit" TextColor="Black" FontAttributes="Bold" FontSize="35" HorizontalOptions="CenterAndExpand" Margin="25" HorizontalTextAlignment="Center"/>
 
                 <Grid>
 
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    
-                    <Editor Grid.Row="0" Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="275"  PlaceholderColor="Black" Margin="40,10" AutoSize="TextChanges" Text="{Binding QTextAfter}"/>
-                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="1" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Lime" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding CorrectAnswerAfter}"/>
-                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="2" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Red" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[0]}"/>
-                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="3" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Red" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[1]}"/>
-                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="4" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Red" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[2]}"/>
 
-                    <Label Grid.Row="5" Text="{Binding Error}" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"
-                        HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3"/>
-
-                    <Button Grid.Row="6" CornerRadius="20" HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand" Text="Submit" BackgroundColor="Silver" TextColor="Black"
-                                Command="{Binding SubmitQuestionCommand}" WidthRequest="120"/>
-
+                    <controls:ExtendedEditorControl HasRoundedCorner="True" IsExpandable="True" BackgroundColor="White" Grid.Row="0" FontSize="Caption" Placeholder="Enter Question Text:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="25" TextColor="black" FontAttributes="Bold" AutoSize="TextChanges" Text="{Binding QTextAfter}"/>
+                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="1" Placeholder="Enter Correct Answer:" FontSize="Caption" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Lime" Text="{Binding CorrectAnswerAfter}"/>
+                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="2" Placeholder="Enter Wrong Answer:" FontSize="Caption" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding OtherAnswersAfter[0]}"/>
+                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="3" Placeholder="Enter Wrong Answer:" FontSize="Caption" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding OtherAnswersAfter[1]}"/>
+                    <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="4" Placeholder="Enter Wrong Answer:" FontSize="Caption" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding OtherAnswersAfter[2]}"/>
                 </Grid>
+                
+                
+                <Label Text="{Binding Error} " FontAttributes="Bold" FontSize="Caption" HorizontalOptions="CenterAndExpand" />
+
+                <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="15" FontAttributes="Bold" FontSize="Caption" Padding="0" Command="{Binding SubmitQuestionCommand}" />
+
+
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

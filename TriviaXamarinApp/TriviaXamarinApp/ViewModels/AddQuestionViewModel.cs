@@ -47,7 +47,9 @@ namespace TriviaXamarinApp.ViewModels
 
                 bool b = await proxy.PostNewQuestion(newQ);
                 if (b)
+                {
                     Error = "Question Added Successfully";
+                }
                 else
                     Error = "Something Went Wrong...";
 
