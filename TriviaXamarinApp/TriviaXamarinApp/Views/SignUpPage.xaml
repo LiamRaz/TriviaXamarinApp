@@ -4,9 +4,10 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TriviaXamarinApp.Views.SignUpPage">
+             x:Class="TriviaXamarinApp.Views.SignUpPage"
+             BackgroundImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\darbuka.png">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#292727"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="50">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -16,16 +17,16 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Sign Up" FontSize="Title" FontAttributes="Bold" HorizontalTextAlignment="Center"
-                   HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3" Margin="7"/>
+                <Label Grid.Row="0" Text="Sign Up" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="30"/>
 
-                <Entry Grid.Row="1"  Placeholder="Enter Your Nickname" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="7" HorizontalTextAlignment="Center" Text="{Binding NickName}"/>
-                <Entry Grid.Row="2"  Placeholder="Enter Your Email" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="7" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
-                <Entry Grid.Row="3"  Placeholder="Enter Your Password" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="7" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
+                <Entry Grid.Row="1" FontAttributes="Bold" Placeholder="Enter Your Nickname:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding NickName}"/>
+                <Entry Grid.Row="2" FontAttributes="Bold" Placeholder="Enter Your Email:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
+                <Entry Grid.Row="3" FontAttributes="Bold" Placeholder="Enter Your Password:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
 
                 <Label Grid.Row="4"  Text="{Binding Error}" FontSize="Caption" FontAttributes="Bold" HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3"/>
-                <Button Grid.Row="5"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="Caption" Margin="7"
+                <Button Grid.Row="5"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="Caption" Margin="15"
                                 VerticalOptions="CenterAndExpand" Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3" HeightRequest="30" Padding="0"
                                 Command="{Binding SignUpCommand}"/>
             </Grid>

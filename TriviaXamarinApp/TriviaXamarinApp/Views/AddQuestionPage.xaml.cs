@@ -3,21 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using TriviaXamarinApp.ViewModels;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using TriviaXamarinApp.ViewModels;
 
 namespace TriviaXamarinApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SignUpPage : ContentPage
+    public partial class AddQuestionPage : ContentPage
     {
-        public SignUpPage()
+        public AddQuestionPage()
         {
             InitializeComponent();
-            BindingContext = new SignUpViewModel();
-           
+            BindingContext = new AddQuestionViewModel();
         }
     }
 }

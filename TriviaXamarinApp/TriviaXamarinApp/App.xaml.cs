@@ -31,6 +31,7 @@ namespace TriviaXamarinApp
 
             CurrentUser = null;
             MainPage = new NavigationPage(new StartPage());
+            ((NavigationPage)Application.Current.MainPage).BarBackgroundColor = Color.Black;
         }
 
         protected override void OnStart()

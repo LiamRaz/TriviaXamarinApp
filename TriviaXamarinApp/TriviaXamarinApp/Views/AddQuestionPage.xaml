@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TriviaXamarinApp.Views.AddQuestionPage"
+             BackgroundImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\addquestionbackground2.png">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="40">
+            <Label Text="Add Question:" TextColor="Black" FontAttributes="Bold" FontSize="35" HorizontalOptions="CenterAndExpand" Margin="30" HorizontalTextAlignment="Center"/>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Editor Grid.Row="0"  Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="30" FontAttributes="Bold" AutoSize="TextChanges" Text="{Binding QuestionText}"/>
+                <Entry Grid.Row="1" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="25" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Lime" Text="{Binding CorrectAnswer}"/>
+                <Entry Grid.Row="2" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="25" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[0]}"/>
+                <Entry Grid.Row="3" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="25" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[1]}"/>
+                <Entry Grid.Row="4" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="25" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[2]}"/>
+            </Grid>
+
+            <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="20" FontAttributes="Bold" FontSize="Title" Padding="0" Command="{Binding SubmitQCommand}" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

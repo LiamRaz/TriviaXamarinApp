@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TriviaXamarinApp.Views.EditPage">
+             x:Class="TriviaXamarinApp.Views.EditPage"
+             BackgroundImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\addquestionbackground2.png">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout BackgroundColor="#292727"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
                 <Label Text="Edit" FontSize="50" FontAttributes="Bold" HorizontalTextAlignment="Center"
-                   HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3" Margin="20,50"/>
+                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="20,50"/>
 
                 <Grid>
 
@@ -21,17 +22,17 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     
-                    <Entry Grid.Row="0" Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding QTextAfter}"/>
-                    <Entry Grid.Row="1" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding CorrectAnswerAfter}"/>
-                    <Entry Grid.Row="2" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[0]}"/>
-                    <Entry Grid.Row="3" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[1]}"/>
-                    <Entry Grid.Row="4" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="#E6E3E3" Margin="40,10" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[2]}"/>
+                    <Editor Grid.Row="0" Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="275"  PlaceholderColor="Black" Margin="40,10" AutoSize="TextChanges" Text="{Binding QTextAfter}"/>
+                    <Entry Grid.Row="1" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Lime" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding CorrectAnswerAfter}"/>
+                    <Entry Grid.Row="2" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Red" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[0]}"/>
+                    <Entry Grid.Row="3" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Red" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[1]}"/>
+                    <Entry Grid.Row="4" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" BackgroundColor="Red" PlaceholderColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding OtherAnswersAfter[2]}"/>
 
                     <Label Grid.Row="5" Text="{Binding Error}" FontSize="30" FontAttributes="Bold" HorizontalTextAlignment="Center"
                         HorizontalOptions="CenterAndExpand" TextColor="#E6E3E3"/>
 
                     <Button Grid.Row="6" CornerRadius="20" HorizontalOptions="CenterAndExpand"
-                                VerticalOptions="CenterAndExpand" Text="Submit" BackgroundColor="black" TextColor="#E6E3E3"
+                                VerticalOptions="CenterAndExpand" Text="Submit" BackgroundColor="Silver" TextColor="Black"
                                 Command="{Binding SubmitQuestionCommand}" WidthRequest="120"/>
 
                 </Grid>

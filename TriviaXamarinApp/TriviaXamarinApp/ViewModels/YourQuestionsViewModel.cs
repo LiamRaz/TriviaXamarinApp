@@ -33,7 +33,7 @@ namespace TriviaXamarinApp.ViewModels
             EditPage eP = new EditPage();
             eP.BindingContext = editViewModel;
             Task t = Push?.Invoke(eP);
-            t.Wait();
+            t.Wait();//app not responding
             Questions.Clear();
             foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
             {
