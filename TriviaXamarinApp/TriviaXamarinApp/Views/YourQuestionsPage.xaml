@@ -27,6 +27,22 @@
                                            CommandParameter="{Binding}"/>
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem Text="Delete"
+                                           IconImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\delete.png"
+                                           BackgroundColor="LightPink"
+                                           Invoked="SwipeItem_Invoked"
+                                           Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
+                                           CommandParameter="{Binding}"/>
+                                        <SwipeItem Text="Edit"
+                                           IconImageSource=""
+                                           BackgroundColor="Orange"
+                                           Invoked="SwipeItem_Invoked_1"
+                                           Command="{Binding Source={x:Reference thePage}, Path= BindingContext.GoToEditCommand}"
+                                           CommandParameter="{Binding}"/>
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
                                 <Grid Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto" />

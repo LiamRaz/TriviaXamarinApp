@@ -16,6 +16,7 @@ namespace TriviaXamarinApp.Views
         {
             InitializeComponent();
             BindingContext = new AddQuestionViewModel();
+            this.BackgroundImageSource = FileImageSource.FromFile("drawable/AddQuestionBackground2");
         }
     }
 }

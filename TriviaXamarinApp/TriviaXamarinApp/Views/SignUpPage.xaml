@@ -4,29 +4,29 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TriviaXamarinApp.Views.SignUpPage"
-             BackgroundImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\darbuka.png">
+             x:Class="TriviaXamarinApp.Views.SignUpPage">
     <ContentPage.Content>
-        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,85">
+        <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,40">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Label Grid.Row="0" Text="Sign Up" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"
-                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="0,40,0,100"/>
+                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="0,40,0,80"/>
 
                 <Entry Grid.Row="1" FontAttributes="Bold" Placeholder="Enter Your Nickname:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="White" TextColor="White" BackgroundColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding NickName}"/>
                 <Entry Grid.Row="2" FontAttributes="Bold" Placeholder="Enter Your Email:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="White" TextColor="White" BackgroundColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
                 <Entry Grid.Row="3" FontAttributes="Bold" Placeholder="Enter Your Password:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="White" TextColor="White" BackgroundColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
-
-                <Label Grid.Row="4"  Text="{Binding Error}" FontSize="Caption" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                <Image Source="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\logosgood.png" WidthRequest="275" Grid.Row="4"/>
+                <Label Grid.Row="5"  Text="{Binding Error}" FontSize="Caption" FontAttributes="Bold" HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" TextColor="black"/>
-                <Button Grid.Row="5"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="Caption" Margin="15"
+                <Button Grid.Row="6"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="Caption" Margin="15"
                                 VerticalOptions="CenterAndExpand" Text="Sign Up" FontAttributes="Bold" BackgroundColor="black" TextColor="#E6E3E3" HeightRequest="30" Padding="0"
                                 Command="{Binding SignUpCommand}"/>
             </Grid>

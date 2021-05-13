@@ -15,8 +15,8 @@ namespace TriviaXamarinApp.Views
         public EditPage()
         {
             InitializeComponent();
-            
-            
+            this.BackgroundImageSource = FileImageSource.FromFile("drawable/AddQuestionBackground2");
+
         }
 
         protected override void OnBindingContextChanged()
