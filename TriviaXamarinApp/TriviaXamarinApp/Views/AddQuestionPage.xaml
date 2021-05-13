@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TriviaXamarinApp.Views.AddQuestionPage">
+             x:Class="TriviaXamarinApp.Views.AddQuestionPage"
+             xmlns:controls="clr-namespace:TriviaXamarinApp.Controls;assembly=TriviaXamarinApp">
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="20">
             <Label Text="Add Question:" TextColor="Black" FontAttributes="Bold" FontSize="35" HorizontalOptions="CenterAndExpand" Margin="25" HorizontalTextAlignment="Center"/>
@@ -15,10 +16,10 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <Editor Grid.Row="0" FontSize="Caption"  Placeholder="Enter Question Text" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Black" Margin="25" TextColor="black" FontAttributes="Bold" AutoSize="TextChanges" Text="{Binding QuestionText}"/>
-                <Entry Grid.Row="1" FontSize="Caption" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Lime" Text="{Binding CorrectAnswer}"/>
-                <Entry Grid.Row="2" FontSize="Caption" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[0]}"/>
-                <Entry Grid.Row="3" FontSize="Caption" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[1]}"/>
-                <Entry Grid.Row="4" FontSize="Caption" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="250" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[2]}"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="1" FontSize="Caption" Placeholder="Enter Correct Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Lime" Text="{Binding CorrectAnswer}"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="2" FontSize="Caption" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[0]}"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="3" FontSize="Caption" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[1]}"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="4" FontSize="Caption" Placeholder="Enter Wrong Answer" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[2]}"/>
             </Grid>
             <Label Text="{Binding Error} " FontAttributes="Bold" FontSize="Caption" HorizontalOptions="CenterAndExpand" />
             <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="15" FontAttributes="Bold" FontSize="Caption" Padding="0" Command="{Binding SubmitQCommand}" />

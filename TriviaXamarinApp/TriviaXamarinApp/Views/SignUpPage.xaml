@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TriviaXamarinApp.Views.SignUpPage">
+             x:Class="TriviaXamarinApp.Views.SignUpPage"
+             xmlns:controls="clr-namespace:TriviaXamarinApp.Controls;assembly=TriviaXamarinApp">
     <ContentPage.Content>
         <StackLayout  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0,40">
             <Grid>
@@ -17,17 +18,17 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Text="Sign Up" FontSize="40" FontAttributes="Bold" HorizontalTextAlignment="Center"
-                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="0,40,0,80"/>
+                <Label Grid.Row="0" Text="Sign Up" FontSize="50" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand" TextColor="Black" Margin="0,40,0,40"/>
 
-                <Entry Grid.Row="1" FontAttributes="Bold" Placeholder="Enter Your Nickname:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="White" TextColor="White" BackgroundColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding NickName}"/>
-                <Entry Grid.Row="2" FontAttributes="Bold" Placeholder="Enter Your Email:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="White" TextColor="White" BackgroundColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
-                <Entry Grid.Row="3" FontAttributes="Bold" Placeholder="Enter Your Password:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="White" TextColor="White" BackgroundColor="Black" Margin="15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
-                <Image Source="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\logosgood.png" WidthRequest="275" Grid.Row="4"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="1" FontAttributes="Bold" Placeholder="Enter Your Nickname:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" TextColor="Black"  Margin="15" HorizontalTextAlignment="Center" Text="{Binding NickName}"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="2" FontAttributes="Bold" Placeholder="Enter Your Email:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" TextColor="Black"  Margin="15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
+                <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="3" FontAttributes="Bold" Placeholder="Enter Your Password:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" TextColor="Black"  Margin="15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
+                <Image Source="LogosGood.png" WidthRequest="275" Grid.Row="4" Margin="0,60,0,10"/>
                 <Label Grid.Row="5"  Text="{Binding Error}" FontSize="Caption" FontAttributes="Bold" HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" TextColor="black"/>
-                <Button Grid.Row="6"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="Caption" Margin="15"
-                                VerticalOptions="CenterAndExpand" Text="Sign Up" FontAttributes="Bold" BackgroundColor="black" TextColor="#E6E3E3" HeightRequest="30" Padding="0"
+                <Button Grid.Row="6"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="15" Margin="15"
+                                VerticalOptions="CenterAndExpand" Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3" HeightRequest="50" WidthRequest="100" Padding="0"
                                 Command="{Binding SignUpCommand}"/>
             </Grid>
         </StackLayout>

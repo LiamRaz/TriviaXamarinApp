@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="TriviaXamarinApp.Views.LoginPage">
+             x:Class="TriviaXamarinApp.Views.LoginPage"
+             xmlns:controls="clr-namespace:TriviaXamarinApp.Controls;assembly=TriviaXamarinApp">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#7F7F7F" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
 
@@ -23,9 +24,9 @@
                                 <RowDefinition Height="*"/>
                                 <!--<RowDefinition Height="Auto"/>-->
                             </Grid.RowDefinitions>
-                            <Label Grid.Row="0" FontSize="Subtitle"  TextColor="Black" HorizontalOptions="CenterAndExpand" Text="{Binding Error}" FontAttributes="Italic"/>
-                            <Entry Grid.Row="1" Placeholder="Enter Your Email" TextColor="Black" HorizontalOptions="CenterAndExpand" PlaceholderColor="Chocolate"  HorizontalTextAlignment="Center" Text="{Binding Email}" FontSize="Micro" WidthRequest="275" />
-                            <Entry Grid.Row="2" Placeholder="Enter Your Password" TextColor="Black" IsPassword="True" HorizontalOptions="CenterAndExpand"  PlaceholderColor="Chocolate"  HorizontalTextAlignment="Center" Text="{Binding Password}" FontSize="Micro" WidthRequest="275" />
+                            <Label Grid.Row="0" FontSize="20"  Margin="0,25,0,15" TextColor="Black" HorizontalOptions="CenterAndExpand" Text="{Binding Error}" FontAttributes="Italic"/>
+                            <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="1" Placeholder="Enter Your Email:" TextColor="Black" HorizontalOptions="CenterAndExpand" PlaceholderColor="Chocolate"  HorizontalTextAlignment="Center" Text="{Binding Email}" FontSize="Micro" WidthRequest="275" VerticalOptions="CenterAndExpand"  HeightRequest="40" />
+                            <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="2" Placeholder="Enter Your Password" TextColor="Black" IsPassword="True" HorizontalOptions="CenterAndExpand"  PlaceholderColor="Chocolate"  HorizontalTextAlignment="Center" Text="{Binding Password}" FontSize="Micro" WidthRequest="275"  VerticalOptions="CenterAndExpand"  HeightRequest="40" />
                             <!--<Label Grid.Row="3" Text="{Binding Error}" HorizontalOptions="CenterAndExpand" FontSize="Micro"/>-->
                             <Button Grid.Row="3" CornerRadius="20" HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand"  Text="Log In" BackgroundColor="MediumPurple"
@@ -48,7 +49,7 @@
                             <BoxView Grid.Row="2" HeightRequest="0.1" BackgroundColor="White" HorizontalOptions="Center" WidthRequest="100" Margin="5"/>
                             <Label Grid.Row="3" HorizontalOptions="CenterAndExpand" FontSize="Micro" TextColor="White" Text="Hello And Welcome To The Most Popular Trivia Game In The World! The Only Game In Which You Can Answer Difficult Questions And Even Write Your Own Questions!" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
                             <Label Grid.Row="4" Text="Dont Have An Account?" FontSize="Caption" TextColor="White" HorizontalOptions="CenterAndExpand" Margin="0,30,0,5"/>
-                            <Image Source="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\logosgood.png" WidthRequest="300" Grid.Row="5"/>
+                            <Image Source="LogosGood.png" WidthRequest="300" Grid.Row="5"/>
                             <Button Grid.Row="6" CornerRadius="20" HorizontalOptions="CenterAndExpand"
                                 VerticalOptions="CenterAndExpand" Text="Sign Up" BackgroundColor="MediumPurple" HeightRequest="30" FontSize="Micro" Margin="10"
                                 Command="{Binding SignUpCommand}" Padding="0"/>

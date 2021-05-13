@@ -14,7 +14,7 @@
                                 <SwipeView.LeftItems>
                                     <SwipeItems>
                                         <SwipeItem Text="Delete"
-                                           IconImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\delete.png"
+                                           IconImageSource="delete.png"
                                            BackgroundColor="LightPink"
                                            Invoked="SwipeItem_Invoked"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
@@ -30,7 +30,7 @@
                                 <SwipeView.RightItems>
                                     <SwipeItems>
                                         <SwipeItem Text="Delete"
-                                           IconImageSource="c:\users\liamr\source\repos\triviaxamarinapp\triviaxamarinapp\triviaxamarinapp.android\resources\drawable\delete.png"
+                                           IconImageSource="delete.png"
                                            BackgroundColor="LightPink"
                                            Invoked="SwipeItem_Invoked"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
