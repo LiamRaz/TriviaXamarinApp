@@ -17,6 +17,7 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
                     <!--<Button BackgroundColor="#A8AD0F" Text="Play" CornerRadius="20" HorizontalOptions="Center" Margin="20" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="0" Command="{Binding PlayCommand}" />
                     <Button BackgroundColor="#A8AD0F" Text="Logout" CornerRadius="20" HorizontalOptions="Center" Margin="20" WidthRequest="150" FontAttributes="Bold" FontSize="30" Grid.Row="1" />

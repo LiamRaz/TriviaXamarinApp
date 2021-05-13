@@ -19,6 +19,7 @@ namespace TriviaXamarinApp.Views
         Button LogoutButton;
         Button EditButton;
         Button SignUpButton;
+        Button WriteQButton;
 
         public StartPage()
         {
@@ -47,6 +48,10 @@ namespace TriviaXamarinApp.Views
                 EditButton.SetBinding(Button.CommandProperty, "EditCommand");
                 ButtonsGrid.Children.Add(EditButton, 0, 2);
 
+                WriteQButton = new Button { BackgroundColor = Color.Gold, Text = "write", CornerRadius = 20, HorizontalOptions = LayoutOptions.Center, Margin = 10, /*WidthRequest = 100,*/ FontAttributes = FontAttributes.Bold, FontSize = 12, HeightRequest = 30, Padding = 0 };
+                WriteQButton.SetBinding(Button.CommandProperty, "WriteCommand");
+                ButtonsGrid.Children.Add(WriteQButton, 0, 3);
+
                 LoginButton = null;
                 SignUpButton = null;
             }
@@ -66,6 +71,7 @@ namespace TriviaXamarinApp.Views
 
                 LogoutButton = null;
                 EditButton = null;
+                WriteQButton = null;
             }
         }
 

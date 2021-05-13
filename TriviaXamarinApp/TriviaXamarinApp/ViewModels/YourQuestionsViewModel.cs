@@ -18,12 +18,26 @@ namespace TriviaXamarinApp.ViewModels
         {
             Error = string.Empty;
             Questions = new ObservableCollection<AmericanQuestion>();
+            GetUser();
             foreach (AmericanQuestion question in ((App)App.Current).CurrentUser.Questions)
             {
                 Questions.Add(question);
             }
             DeleteQuestionCommand = new Command<AmericanQuestion>(Delete);
             GoToEditCommand = new Command<AmericanQuestion>(GoToEdit);
+        }
+
+        private async void GetUser()
+        {
+            try
+            {
+                TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
+                ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
+            }
+            catch(Exception)
+            {
+                Error = "Something Went Wrong...";
+            }
         }
 
         private void GoToEdit(AmericanQuestion question)
