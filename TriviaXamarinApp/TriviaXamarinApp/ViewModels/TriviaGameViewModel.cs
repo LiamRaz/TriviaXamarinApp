@@ -69,8 +69,9 @@ namespace TriviaXamarinApp.ViewModels
                     this.AddOpacity = 1;
 
                 this.EnableAnswer = false;
+                this.EnableNext = true;
             }
-            this.EnableNext = true;
+            
         }
 
         private void NextQ()
@@ -80,6 +81,7 @@ namespace TriviaXamarinApp.ViewModels
             {
                 AllAnswers[i] = string.Empty;
                 AnswersColor[i] = Color.White;
+                
             }
             GetQ();
             this.EnableAnswer = true;
@@ -130,7 +132,7 @@ namespace TriviaXamarinApp.ViewModels
             AllAnswers[indexOfCorrect] = this.CorrectAnswer;
             for (int i = 0; i < NUM_ANSWERS; i++)
             {
-                if(string.IsNullOrEmpty(AllAnswers[i]))
+                if(i != indexOfCorrect)
                 {
                     AllAnswers[i] = q.OtherAnswers[counter];
                     counter++;
@@ -299,6 +301,7 @@ namespace TriviaXamarinApp.ViewModels
         }
 
         public ObservableCollection<string> AllAnswers { get; set; }
+
 
         #endregion
 
