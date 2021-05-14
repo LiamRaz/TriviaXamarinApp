@@ -11,10 +11,9 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Image Grid.Row="0" Source="TriviaNight3.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
-                <StackLayout Grid.Row="1">
+                <StackLayout Grid.Row="1" Padding="20" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
                 <Grid x:Name="ButtonsGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="*"/>

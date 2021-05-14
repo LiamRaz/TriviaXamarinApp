@@ -19,12 +19,6 @@ namespace TriviaXamarinApp.ViewModels
             LoginCommand = new Command(Login);
             LogoutCommand = new Command(LogOut);
             EditCommand = new Command(Edit);
-            WriteCommand = new Command(Write);
-        }
-
-        private void Write()
-        {
-            Push?.Invoke(new AddQuestionPage());
         }
 
         private void SignUp()
@@ -70,7 +64,6 @@ namespace TriviaXamarinApp.ViewModels
         public ICommand EditCommand { get; set; }
         public ICommand SignUpCommand { get; set; }
 
-        public ICommand WriteCommand { get; set; }
         #endregion
 
         #region Events

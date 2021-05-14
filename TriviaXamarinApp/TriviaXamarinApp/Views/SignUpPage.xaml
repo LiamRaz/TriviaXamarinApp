@@ -25,7 +25,7 @@
                 <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="2" FontAttributes="Bold" Placeholder="Enter Your Email:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" TextColor="Black"  Margin="15" HorizontalTextAlignment="Center" Text="{Binding Email}"/>
                 <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="3" FontAttributes="Bold" Placeholder="Enter Your Password:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" TextColor="Black"  Margin="15" HorizontalTextAlignment="Center" Text="{Binding Password}" IsPassword="True"/>
                 <Image Source="LogosGood.png" WidthRequest="275" Grid.Row="4" Margin="0,60,0,10"/>
-                <Label Grid.Row="5"  Text="{Binding Error}" FontSize="Caption" FontAttributes="Bold" HorizontalTextAlignment="Center"
+                <Label Grid.Row="5"  Text="{Binding Error}" FontSize="Body" FontAttributes="Bold" HorizontalTextAlignment="Center"
                    HorizontalOptions="CenterAndExpand" TextColor="black"/>
                 <Button Grid.Row="6"  CornerRadius="20" HorizontalOptions="CenterAndExpand" FontSize="15" Margin="15"
                                 VerticalOptions="CenterAndExpand" Text="Sign Up" BackgroundColor="black" TextColor="#E6E3E3" HeightRequest="50" WidthRequest="100" Padding="0"
