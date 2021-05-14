@@ -45,7 +45,7 @@ namespace TriviaXamarinApp.ViewModels
         {
             if (((App)App.Current).CurrentUser != null)
             {
-                //Push?.Invoke();
+                Push?.Invoke(new TriviaGamePage());
             }
             else
                 Push?.Invoke(new LoginPage());
