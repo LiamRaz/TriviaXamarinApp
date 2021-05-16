@@ -7,55 +7,57 @@
         <ScrollView>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="#292727">
                 <Label Text="Your Questions:" TextColor="white" HorizontalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="Title"/>
+                <RefreshView x:Name="refreshView" Command="{Binding RefreshCommand}">
                     <CollectionView ItemsSource="{Binding Questions}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <SwipeView>
-                                <SwipeView.LeftItems>
-                                    <SwipeItems>
-                                        <SwipeItem Text="Delete"
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <SwipeView>
+                                    <SwipeView.LeftItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Delete"
                                            IconImageSource="delete.png"
                                            BackgroundColor="LightPink"
                                            Invoked="SwipeItem_Invoked"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
                                            CommandParameter="{Binding}"/>
-                                        <SwipeItem Text="Edit"
+                                            <SwipeItem Text="Edit"
                                            IconImageSource="editIcon.png"
                                            BackgroundColor="Orange"
                                            Invoked="SwipeItem_Invoked_1"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.GoToEditCommand}"
                                            CommandParameter="{Binding}"/>
-                                    </SwipeItems>
-                                </SwipeView.LeftItems>
-                                <SwipeView.RightItems>
-                                    <SwipeItems>
-                                        <SwipeItem Text="Delete" 
+                                        </SwipeItems>
+                                    </SwipeView.LeftItems>
+                                    <SwipeView.RightItems>
+                                        <SwipeItems>
+                                            <SwipeItem Text="Delete" 
                                            IconImageSource="delete.png"
                                            BackgroundColor="LightPink"
                                            Invoked="SwipeItem_Invoked"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.DeleteQuestionCommand}"
                                            CommandParameter="{Binding}"/>
-                                        <SwipeItem Text="Edit"
+                                            <SwipeItem Text="Edit"
                                            IconImageSource="editIcon.png"
                                            BackgroundColor="Orange"
                                            Invoked="SwipeItem_Invoked_1"
                                            Command="{Binding Source={x:Reference thePage}, Path= BindingContext.GoToEditCommand}"
                                            CommandParameter="{Binding}"/>
-                                    </SwipeItems>
-                                </SwipeView.RightItems>
-                                <Grid Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Row="0" Text="Ouestion:" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Micro"/>
-                                    <Label Grid.Row="1" Text="{Binding QText}" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Micro"/>
+                                        </SwipeItems>
+                                    </SwipeView.RightItems>
+                                    <Grid Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" BackgroundColor="Black">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" Text="Ouestion:" FontAttributes="Bold" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Micro"/>
+                                        <Label Grid.Row="1" Text="{Binding QText}" HorizontalOptions="CenterAndExpand" TextColor="White" FontSize="Micro"/>
 
-                                </Grid>
-                        </SwipeView>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
+                                    </Grid>
+                                </SwipeView>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </RefreshView>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

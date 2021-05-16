@@ -18,13 +18,20 @@ namespace TriviaXamarinApp.ViewModels
         {
             Error = string.Empty;
             Questions = new ObservableCollection<AmericanQuestion>();
-            GetQuestions();
+            //GetQuestions();
             foreach (AmericanQuestion question in ((App)App.Current).CurrentUser.Questions)
             {
                 Questions.Add(question);
             }
             DeleteQuestionCommand = new Command<AmericanQuestion>(Delete);
             GoToEditCommand = new Command<AmericanQuestion>(GoToEdit);
+            RefreshCommand = new Command(Refresh);
+        }
+
+        private void Refresh()
+        {
+           GetQuestions();
+           RefreshView.IsRefreshing = false;
         }
 
         private async void GetQuestions()
@@ -33,6 +40,16 @@ namespace TriviaXamarinApp.ViewModels
             {
                 TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
                 ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
+                if(((App)App.Current).CurrentUser == null)
+                    Error = "Something Went Wrong...";
+                else
+                {
+                    Questions.Clear();
+                    foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
+                    {
+                        Questions.Add(q);
+                    }
+                }
             }
             catch(Exception)
             {
@@ -47,12 +64,12 @@ namespace TriviaXamarinApp.ViewModels
             EditPage eP = new EditPage();
             eP.BindingContext = editViewModel;
             Task t = Push?.Invoke(eP);
-            t.Wait();//app not responding
-            Questions.Clear();
-            foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
-            {
-                Questions.Add(q);
-            }
+            //t.Wait();//app not responding
+            //Questions.Clear();
+            //foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
+            //{
+            //    Questions.Add(q);
+            //}
         }
 
         private async void Delete(AmericanQuestion question)
@@ -78,7 +95,7 @@ namespace TriviaXamarinApp.ViewModels
 
         #region Properties
 
-       
+        public RefreshView RefreshView { get; set; }
 
         private string error;
 
@@ -101,6 +118,7 @@ namespace TriviaXamarinApp.ViewModels
 
         #region Commands
 
+        public ICommand RefreshCommand { get; set; }
         public ICommand DeleteQuestionCommand { get; set; }
 
         public ICommand GoToEditCommand { get; set; }

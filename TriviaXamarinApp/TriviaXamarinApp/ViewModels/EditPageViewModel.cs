@@ -71,8 +71,8 @@ namespace TriviaXamarinApp.ViewModels
                         Error = "Edit Completed!";
                     }
 
-                    ((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
-                    Pop?.Invoke();
+                    //((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
+                    //Pop?.Invoke();
                 }
                 catch (Exception)
                 {

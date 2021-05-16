@@ -17,6 +17,7 @@ namespace TriviaXamarinApp.Views
         {
             InitializeComponent();
             YourQuestionsViewModel yQVM = new YourQuestionsViewModel();
+            yQVM.RefreshView = refreshView;
             BindingContext = yQVM;
             yQVM.Push += (p) => Navigation.PushAsync(p);
         }
@@ -28,7 +29,7 @@ namespace TriviaXamarinApp.Views
 
         private void SwipeItem_Invoked_1(object sender, EventArgs e)
         {
-
+            
         }
     }
 }
