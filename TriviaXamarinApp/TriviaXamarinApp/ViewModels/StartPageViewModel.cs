@@ -34,6 +34,7 @@ namespace TriviaXamarinApp.ViewModels
         private void LogOut()
         {
             ((App)App.Current).CurrentUser = null;
+            Push?.Invoke(new StartPage());
         }
 
         private void Login()

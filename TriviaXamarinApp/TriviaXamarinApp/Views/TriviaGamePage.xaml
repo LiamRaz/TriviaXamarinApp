@@ -24,30 +24,9 @@
             <Label TextColor="#0F2DD0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
                    Text="{Binding QText}" Margin="0,3,0,15"/>
 
-            <!--<Grid HorizontalOptions="FillAndExpand" Margin="20,20">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>-->
+            
 
-                <!--<Button IsEnabled="{Binding EnableAnswer}" Grid.Row="0" Text="{Binding AllAnswers[0]}" BorderColor="Black" TextColor="Black" BackgroundColor="{Binding AnswersColor[0]}" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
-                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="0"/>
-
-                <Button IsEnabled="{Binding EnableAnswer}" Grid.Row="1" Text="{Binding AllAnswers[1]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[1]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
-                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="1"/>
-
-                <Button IsEnabled="{Binding EnableAnswer}" Grid.Row="2" Text="{Binding AllAnswers[2]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[2]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
-                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="2"/>
-
-                <Button IsEnabled="{Binding EnableAnswer}" Grid.Row="3" Text="{Binding AllAnswers[3]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[3]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
-                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="3"/>-->
-                
-            <!--</Grid>-->
-
-
-            <CollectionView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="20" ItemsSource="{Binding Answers}" BackgroundColor="Red" >
+            <CollectionView VerticalOptions="Center" HeightRequest="250" Margin="20" ItemsSource="{Binding Answers}" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Button Text="{Binding Answer}" BorderColor="Black" BackgroundColor="{Binding Color}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
@@ -57,7 +36,7 @@
             </CollectionView>
             
             
-            <Grid HorizontalOptions="FillAndExpand" Margin="20,20">
+            <Grid HorizontalOptions="FillAndExpand" Margin="0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
