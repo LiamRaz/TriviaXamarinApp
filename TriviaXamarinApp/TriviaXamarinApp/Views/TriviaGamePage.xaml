@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="TriviaXamarinApp.Views.TriviaGamePage">
+             x:Class="TriviaXamarinApp.Views.TriviaGamePage"
+             x:Name="page">
     <ContentPage.Content>
-        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
             <Grid  HorizontalOptions="FillAndExpand">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -23,26 +24,39 @@
             <Label TextColor="#0F2DD0" FontAttributes="Bold" FontSize="20" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand"
                    Text="{Binding QText}" Margin="0,3,0,15"/>
 
-            <Grid HorizontalOptions="FillAndExpand" Margin="20,20">
+            <!--<Grid HorizontalOptions="FillAndExpand" Margin="20,20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                </Grid.RowDefinitions>-->
 
-                <Button IsEnabled="{Binding Enable}" Grid.Row="0" Text="{Binding AllAnswers[0]}" BorderColor="Black" TextColor="Black" BackgroundColor="{Binding AnswersColor[0]}" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
+                <!--<Button IsEnabled="{Binding EnableAnswer}" Grid.Row="0" Text="{Binding AllAnswers[0]}" BorderColor="Black" TextColor="Black" BackgroundColor="{Binding AnswersColor[0]}" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
                         CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="0"/>
 
-                <Button IsEnabled="{Binding Enable}" Grid.Row="1" Text="{Binding AllAnswers[1]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[1]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
+                <Button IsEnabled="{Binding EnableAnswer}" Grid.Row="1" Text="{Binding AllAnswers[1]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[1]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
                         CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="1"/>
 
-                <Button IsEnabled="{Binding Enable}" Grid.Row="2" Text="{Binding AllAnswers[2]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[2]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
+                <Button IsEnabled="{Binding EnableAnswer}" Grid.Row="2" Text="{Binding AllAnswers[2]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[2]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
                         CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="2"/>
 
-                <Button IsEnabled="{Binding Enable}" Grid.Row="3" Text="{Binding AllAnswers[3]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[3]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
-                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="3"/>
-            </Grid>
+                <Button IsEnabled="{Binding EnableAnswer}" Grid.Row="3" Text="{Binding AllAnswers[3]}" BorderColor="Black" BackgroundColor="{Binding AnswersColor[3]}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
+                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding IsCorrectCommand}" CommandParameter="3"/>-->
+                
+            <!--</Grid>-->
+
+
+            <CollectionView VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Margin="20" ItemsSource="{Binding Answers}" BackgroundColor="Red" >
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Button Text="{Binding Answer}" BorderColor="Black" BackgroundColor="{Binding Color}" TextColor="Black" BorderWidth="0.5" HorizontalOptions="FillAndExpand" 
+                        CornerRadius="20" VerticalOptions="FillAndExpand" Command="{Binding AnswerCommand}" CommandParameter="{Binding Id}" Margin="0"></Button>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+            
             <Grid HorizontalOptions="FillAndExpand" Margin="20,20">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -55,7 +69,7 @@
                 <Button IsEnabled="{Binding EnableAdd}" Grid.Row="1" Text="Add Question:" Command="{Binding AddQCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                        TextColor="Black" CornerRadius="20" WidthRequest="200" BackgroundColor="White" Opacity="{Binding AddOpacity}" Margin="0,10,0,2"/>
 
-                <Button IsEnabled="{Binding EnableNext}" Grid.Row="2" Text="Next Question:" Command="{Binding NextQCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                <Button  Grid.Row="2" Text="Next Question:" Command="{Binding NextQCommand}" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
                        TextColor="Black" CornerRadius="20" WidthRequest="200" BackgroundColor="White"/>
             </Grid>
         </StackLayout>

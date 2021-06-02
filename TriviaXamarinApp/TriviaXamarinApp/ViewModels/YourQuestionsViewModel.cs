@@ -28,7 +28,7 @@ namespace TriviaXamarinApp.ViewModels
             RefreshCommand = new Command(Refresh);
         }
 
-        private void Refresh()
+        public void Refresh()
         {
            GetQuestions();
            RefreshView.IsRefreshing = false;
@@ -59,10 +59,10 @@ namespace TriviaXamarinApp.ViewModels
 
         private void GoToEdit(AmericanQuestion question)
         {
-            EditPageViewModel editViewModel = new EditPageViewModel(question);
             
-            EditPage eP = new EditPage();
-            eP.BindingContext = editViewModel;
+            
+            EditPage eP = new EditPage(question);
+            
             Task t = Push?.Invoke(eP);
             //t.Wait();//app not responding
             //Questions.Clear();

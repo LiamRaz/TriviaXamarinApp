@@ -31,5 +31,10 @@ namespace TriviaXamarinApp.Views
         {
             
         }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            ((YourQuestionsViewModel)BindingContext).Refresh();
+        }
     }
 }

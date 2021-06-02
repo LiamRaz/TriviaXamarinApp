@@ -24,31 +24,32 @@ namespace TriviaXamarinApp.ViewModels
             this.NumCorrect = 0;
             this.NumWrong = 0;
             this.Error = string.Empty;
-            AllAnswers = new ObservableCollection<string>();
+            //AllAnswers = new ObservableCollection<string>();
+            Answers = new ObservableCollection<AnswerViewModel>();
             for (int i = 0; i < NUM_ANSWERS; i++)
             {
-                AllAnswers.Add(string.Empty);
+                Answers.Add(null);
             }
             GetQ();
 
-            this.AnswersColor = new ObservableCollection<Color>();
-            this.AnswersColor.Add(Color.White);
-            this.AnswersColor.Add(Color.White);
-            this.AnswersColor.Add(Color.White);
-            this.AnswersColor.Add(Color.White);
+            //this.AnswersColor = new ObservableCollection<Color>();
+            //this.AnswersColor.Add(Color.White);
+            //this.AnswersColor.Add(Color.White);
+            //this.AnswersColor.Add(Color.White);
+            //this.AnswersColor.Add(Color.White);
 
             AddQCommand = new Command(GoToAddQ);
             NextQCommand = new Command(NextQ);
-            IsCorrectCommand = new Command<string>(IsCorrect);
+            IsCorrectCommand = new Command<int>(IsCorrect);
         }
 
         
-        private void IsCorrect(string i)
+        private void IsCorrect(int index)
         {
-            int index = int.Parse(i);
+            //int index = int.Parse(i);
             if (EnableAnswer)
             {
-                if (AllAnswers[index] == CorrectAnswer)
+                if (Answers[index].Answer == CorrectAnswer.Answer)
                 {
                     NumCorrect++;
                     if (NumCorrect % 3 == 0)
@@ -56,13 +57,13 @@ namespace TriviaXamarinApp.ViewModels
 
                     if (NumAdd > 0)
                         this.EnableAdd = true;
-                    this.AnswersColor[index] = Color.Lime;
+                    this.Answers[index].Color = Color.Lime;
                 }
                 else
                 {
                     NumWrong++;
-                    this.AnswersColor[index] = Color.Red;
-                    this.AnswersColor[indexOfCorrect] = Color.Lime;
+                    this.Answers[index].Color = Color.Red;
+                    this.Answers[indexOfCorrect].Color = Color.Lime;
                 }
 
                 if (NumAdd > 0)
@@ -76,15 +77,18 @@ namespace TriviaXamarinApp.ViewModels
 
         private void NextQ()
         {
-            this.EnableNext = false;
-            for (int i = 0; i < NUM_ANSWERS; i++)
+            if(EnableNext)
             {
-                AllAnswers[i] = string.Empty;
-                AnswersColor[i] = Color.White;
-                
+                this.EnableNext = false;
+                for (int i = 0; i < NUM_ANSWERS; i++)
+                {
+                    Answers[i].Answer = string.Empty;
+                    Answers[i].Color = Color.White;
+
+                }
+                GetQ();
+                this.EnableAnswer = true;
             }
-            GetQ();
-            this.EnableAnswer = true;
 
         }
 
@@ -109,7 +113,12 @@ namespace TriviaXamarinApp.ViewModels
                 AmericanQuestion q = await proxy.GetRandomQuestion();
                 if (q != null)
                 {
-                    this.CorrectAnswer = q.CorrectAnswer;
+                    this.CorrectAnswer = new AnswerViewModel() 
+                    {
+                        Answer = q.CorrectAnswer,
+                        Color = Color.White,
+                        AnswerCommand = new Command<int>(IsCorrect)
+                    };
                     this.QText = q.QText;
                     ShuffleAnswers(q);
                 }
@@ -129,12 +138,19 @@ namespace TriviaXamarinApp.ViewModels
             Random rnd = new Random();
             int counter = 0;
             this.indexOfCorrect = rnd.Next(0, NUM_ANSWERS);
-            AllAnswers[indexOfCorrect] = this.CorrectAnswer;
+            Answers[indexOfCorrect] = this.CorrectAnswer;
+            this.CorrectAnswer.Id = indexOfCorrect;
             for (int i = 0; i < NUM_ANSWERS; i++)
             {
                 if(i != indexOfCorrect)
                 {
-                    AllAnswers[i] = q.OtherAnswers[counter];
+                    Answers[i] = new AnswerViewModel()
+                    {
+                        Answer = q.OtherAnswers[counter],
+                        Color = Color.White,
+                        AnswerCommand = new Command<int>(IsCorrect),
+                        Id = i
+                    };
                     counter++;
                 }
             }
@@ -206,8 +222,8 @@ namespace TriviaXamarinApp.ViewModels
 
         private const int NUM_ANSWERS = 4;
 
-        public ObservableCollection<Color> AnswersColor { get; set; }
-
+        //public ObservableCollection<Color> AnswersColor { get; set; }
+        public ObservableCollection<AnswerViewModel> Answers { get; set; }
 
         private int numCorrect;
 
@@ -285,9 +301,9 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
-        private string correctAnswer;
+        private AnswerViewModel correctAnswer;
 
-        public string CorrectAnswer
+        public AnswerViewModel CorrectAnswer
         {
             get => correctAnswer;
             set
@@ -300,7 +316,7 @@ namespace TriviaXamarinApp.ViewModels
             }
         }
 
-        public ObservableCollection<string> AllAnswers { get; set; }
+        //public ObservableCollection<string> AllAnswers { get; set; }
 
 
         #endregion
