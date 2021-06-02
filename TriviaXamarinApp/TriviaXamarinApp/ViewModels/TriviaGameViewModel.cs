@@ -98,10 +98,14 @@ namespace TriviaXamarinApp.ViewModels
             {
                 Push?.Invoke(new AddQuestionPage());
                 NumAdd--;
-                AddOpacity = 0.5;
-                
+
+
                 if (NumAdd <= 0)
+                {
+                    AddOpacity = 0.5;
                     this.EnableAdd = false;
+                }
+
             }
         }
 

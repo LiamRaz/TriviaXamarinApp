@@ -29,7 +29,7 @@
                 
                 <Label Text="{Binding Error} " FontAttributes="Bold" FontSize="Caption" HorizontalOptions="CenterAndExpand" />
 
-                <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="15" FontAttributes="Bold" FontSize="Caption" Padding="0" Command="{Binding SubmitQuestionCommand}" />
+                <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="15" FontAttributes="Bold" FontSize="Caption" Padding="0" Command="{Binding SubmitQuestionCommand}" Clicked="Button_Clicked" />
 
 
             </StackLayout>

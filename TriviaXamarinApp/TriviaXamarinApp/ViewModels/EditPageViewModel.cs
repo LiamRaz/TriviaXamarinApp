@@ -30,57 +30,65 @@ namespace TriviaXamarinApp.ViewModels
 
         private async void SubmitQuestion()
         {
-            try
+            if (string.IsNullOrEmpty(QTextAfter) || string.IsNullOrEmpty(CorrectAnswerAfter) || string.IsNullOrEmpty(OtherAnswersAfter[0]) || string.IsNullOrEmpty(OtherAnswersAfter[1]) || string.IsNullOrEmpty(OtherAnswersAfter[2]))
             {
-                TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-                if(!await proxy.DeleteQuestion(questionBefore))
+                Error = "Something Went Wrong...";
+            }
+            else
+            {
+                try
+                {
+                    TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
+                    if (!await proxy.DeleteQuestion(questionBefore))
+                    {
+                        Error = "Something Went Wrong...";
+                    }
+
+                }
+                catch (Exception)
                 {
                     Error = "Something Went Wrong...";
                 }
 
-            }
-            catch(Exception)
-            {
-                Error = "Something Went Wrong...";
-            }
-
-            if(string.IsNullOrEmpty(Error))
-            {
-                AmericanQuestion newQuestion = new AmericanQuestion
+                if (string.IsNullOrEmpty(Error))
                 {
-                    QText = this.QTextAfter,
-                    CorrectAnswer = this.CorrectAnswerAfter,
-                    CreatorNickName = ((App)App.Current).CurrentUser.NickName,
-                    OtherAnswers = new string[]
+                    AmericanQuestion newQuestion = new AmericanQuestion
                     {
+                        QText = this.QTextAfter,
+                        CorrectAnswer = this.CorrectAnswerAfter,
+                        CreatorNickName = ((App)App.Current).CurrentUser.NickName,
+                        OtherAnswers = new string[]
+                        {
                         OtherAnswersAfter[0],
                         OtherAnswersAfter[1],
                         OtherAnswersAfter[2]
-                    }
-                };
+                        }
+                    };
 
-                try
-                {
-                    TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
-                    if (!await proxy.PostNewQuestion(newQuestion))
+                    try
                     {
-                        Error = "Something Went Wrong...";
-                    }
-                    else
-                    {
-                        Error = "Edit Completed!";
-                    }
+                        TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
+                        if (!await proxy.PostNewQuestion(newQuestion))
+                        {
+                            Error = "Something Went Wrong...";
+                        }
+                        else
+                        {
+                            Error = "Edit Completed!";
+                        }
 
-                    //((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
-                    //Pop?.Invoke();
+                        //((App)App.Current).CurrentUser = await proxy.LoginAsync(((App)App.Current).CurrentUser.Email, ((App)App.Current).CurrentUser.Password);
+                        //Pop?.Invoke();
+                    }
+                    catch (Exception)
+                    {
+                        Error = "Something Went Wrong..";
+                    }
                 }
-                catch (Exception)
-                {
-                    Error = "Something Went Wrong..";
-                }
+
+
             }
 
-            
         }
 
         #region Properties

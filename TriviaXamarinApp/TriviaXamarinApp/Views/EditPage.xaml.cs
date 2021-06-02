@@ -23,6 +23,15 @@ namespace TriviaXamarinApp.Views
 
         }
 
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            EditPageViewModel viewModel = ((EditPageViewModel)BindingContext);
+            if(string.IsNullOrEmpty(viewModel.QTextAfter) || string.IsNullOrEmpty(viewModel.CorrectAnswerAfter) || string.IsNullOrEmpty(viewModel.OtherAnswersAfter[0]) || string.IsNullOrEmpty(viewModel.OtherAnswersAfter[1]) || string.IsNullOrEmpty(viewModel.OtherAnswersAfter[2]))
+            {
+                await DisplayAlert("Alert", "Oops... Please fill all empty fields:)", "Ok");
+            }
+        }
+
         //protected override void OnBindingContextChanged()
         //{
         //    ((EditPageViewModel)BindingContext).Pop += () => Navigation.PopAsync();

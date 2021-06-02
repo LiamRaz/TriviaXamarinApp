@@ -63,7 +63,7 @@ namespace TriviaXamarinApp.ViewModels
             
             EditPage eP = new EditPage(question);
             
-            Task t = Push?.Invoke(eP);
+            Push?.Invoke(eP);
             //t.Wait();//app not responding
             //Questions.Clear();
             //foreach (AmericanQuestion q in ((App)App.Current).CurrentUser.Questions)
@@ -127,7 +127,7 @@ namespace TriviaXamarinApp.ViewModels
 
         #region Events
 
-        public event Func<Page,Task> Push;
+        public event Action<Page> Push;
 
         #endregion
 

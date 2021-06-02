@@ -22,7 +22,7 @@
                 <controls:StandardEntry BorderColor="Black" CornerRadius="15" BorderThickness="1" Grid.Row="4" FontSize="Caption" Placeholder="Enter Wrong Answer:" HorizontalOptions="CenterAndExpand" WidthRequest="275" PlaceholderColor="Black" Margin="20" TextColor="black" FontAttributes="Bold" HorizontalTextAlignment="Center" BackgroundColor="Red" Text="{Binding WrongAnswers[2]}"/>
             </Grid>
             <Label Text="{Binding Error} " FontAttributes="Bold" FontSize="Caption" HorizontalOptions="CenterAndExpand" />
-            <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="15" FontAttributes="Bold" FontSize="Caption" Padding="0" Command="{Binding SubmitQCommand}" />
+            <Button BackgroundColor="Silver" Text="Submit" CornerRadius="20" WidthRequest="125" HorizontalOptions="Center" Margin="15" FontAttributes="Bold" FontSize="Caption" Padding="0" Command="{Binding SubmitQCommand}" Clicked="Button_Clicked" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

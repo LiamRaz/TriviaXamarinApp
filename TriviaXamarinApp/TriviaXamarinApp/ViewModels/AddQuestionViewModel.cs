@@ -32,26 +32,34 @@ namespace TriviaXamarinApp.ViewModels
             TriviaWebAPIProxy proxy = TriviaWebAPIProxy.CreateProxy();
             try
             {
-                AmericanQuestion newQ = new AmericanQuestion
+                if(string.IsNullOrEmpty(QuestionText)|| string.IsNullOrEmpty(CorrectAnswer)|| string.IsNullOrEmpty(WrongAnswers[0]) || string.IsNullOrEmpty(WrongAnswers[1])|| string.IsNullOrEmpty(WrongAnswers[2]))
                 {
-                    QText = this.QuestionText,
-                    CorrectAnswer = this.CorrectAnswer,
-                    CreatorNickName = ((App)App.Current).CurrentUser.NickName,
-                    OtherAnswers = new string[]
+                    Error = "Something Went Wrong...";
+                }
+                else
+                {
+                    AmericanQuestion newQ = new AmericanQuestion
+                    {
+                        QText = this.QuestionText,
+                        CorrectAnswer = this.CorrectAnswer,
+                        CreatorNickName = ((App)App.Current).CurrentUser.NickName,
+                        OtherAnswers = new string[]
                     {
                         WrongAnswers[0],
                         WrongAnswers[1],
                         WrongAnswers[2]
                     }
-                };
+                    };
 
-                bool b = await proxy.PostNewQuestion(newQ);
-                if (b)
-                {
-                    Error = "Question Added Successfully";
+                    bool b = await proxy.PostNewQuestion(newQ);
+                    if (b)
+                    {
+                        Error = "Question Added Successfully";
+                    }
+                    else
+                        Error = "Something Went Wrong...";
                 }
-                else
-                    Error = "Something Went Wrong...";
+                
 
             }
             catch(Exception)
