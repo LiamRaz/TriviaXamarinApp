@@ -26,6 +26,7 @@ namespace TriviaXamarinApp.Views
             StartPageViewModel sPVM = new StartPageViewModel();
             BindingContext = sPVM;
             sPVM.Push += (p) => Navigation.PushAsync(p);
+            sPVM.PopAll += () => Navigation.PopToRootAsync();
             ((App)App.Current).Update += UpdateStartPage;
 
             UpdateStartPage(((App)App.Current).CurrentUser);

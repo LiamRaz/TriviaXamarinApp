@@ -34,6 +34,7 @@ namespace TriviaXamarinApp.ViewModels
         private void LogOut()
         {
             ((App)App.Current).CurrentUser = null;
+            PopAll?.Invoke();
             Push?.Invoke(new StartPage());
         }
 
@@ -71,6 +72,7 @@ namespace TriviaXamarinApp.ViewModels
 
         public event Action<Page> Push;
 
+        public event Action PopAll;
         #endregion
     }
 }
